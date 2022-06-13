@@ -10,23 +10,24 @@ services:
     ports:
       - "5432:5432"
     environment:
-      
-      POSTGRES_PASSWORD: 'baba'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_DB: 'db'
     networks:
       - pgsite
   # pgAdmin
-  pg4:
-    depends_on:
-      - db
-    image: dpage/pgadmin4
-    restart: always
-    ports:
-      - "8080:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: 'postgres@domain.com'
-      PGADMIN_DEFAULT_PASSWORD: 'baba'
-    networks:
-      - pgsite
+  # pg4:
+  #   depends_on:
+  #     - db
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: 'postgres@domain.com'
+  #     PGADMIN_DEFAULT_PASSWORD: '1234'
+  #   networks:
+  #     - pgsite
 
 
 networks:
